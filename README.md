@@ -55,4 +55,28 @@ Uses an **SVM classifier** (with automatic fallback to KNN for very small datase
 
 ---
 
-## 📁 Repository Structure
+---
+
+## 🚀 Running the Project
+
+This was originally developed in Google Colab, but all file paths are relative — it runs identically locally, in GitHub Codespaces, or in any Jupyter environment. No Google Drive mounting is needed.
+
+### 1. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run the notebook
+Open `Sahara_Sevak_AI.ipynb` and run all cells in order. This will:
+1. Generate the geospatial risk clustering plots and district risk table
+2. Train (or load, if already trained) the dialect classifier and print a cross-validation accuracy report
+3. Launch a Gradio demo with a temporary public link for testing the voice intake portal
+
+### 3. Adding more training data
+To improve dialect prediction accuracy, add more `.wav`/`.mp3`/`.m4a` files into the relevant `data/audio/{language}/` folder, delete `data/real_dialect_mfccs.csv`, and re-run the notebook — it will automatically re-extract features and retrain.
+
+---
+
+## ⚠️ Disclaimer
+
+This is a prototype developed for research/pilot purposes. Predictions (risk levels, dialect estimates, triage status) are probabilistic and should be used to *assist*, not replace, human judgment and professional care decisions.
